@@ -32,8 +32,17 @@
               <span class="input-group-text" id="address" >Endereço </span>
               <input type="text" id="address" formControlName="address" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-
-      
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="address" >Demanda </span>
+              <input type="number" id="demand" formControlName="demand" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="div">
+              <input type="checkbox" id="checkbox" ng-model="checkbox" ng-value="checkbox ">Deseja compartilhar todas essas informações conosco ?<BR>
+                <div *ngIf="submitted && checkbox.invalid">
+                  <small alert="text-danger">Preencha corretamente!</small>
+                </div>
+            </div>
+            
               <div class="mb-3 d-flex justify-content-end">
                 <button class="btn btn-primary me-2" (click)="save()"> salvar</button>
                 <button class="btn btn-primary" (click)="clean()">Limpar</button>
@@ -47,6 +56,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Endreço</th>
                     <th scope="col">Produto</th>
+                    <th scope="col">Demanda</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Opções</th>
                   </tr>
@@ -59,6 +69,7 @@
                     <td>{{supplier.email}}</td>
                     <td>{{supplier.address}}</td>
                     <td>{{supplier.product}}</td>
+                    <td>{{supplier.demand}}</td>
                     <td>{{supplier.phone}}</td>
 
                     <td>

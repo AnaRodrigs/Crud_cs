@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SupplierService } from '../supplier.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Supplier } from '../supplier';
 
 @Component({
@@ -8,12 +8,13 @@ import { Supplier } from '../supplier';
   templateUrl: './supplier.component.html',
   styleUrls: ['./supplier.component.css']
 })
-export class SupplierComponent {
+
+export class SupplierComponent implements OnInit {
 
   suppliers: Supplier[] = [];
-  isEditing: boolean = false;
+  isEditing: boolean = true;
   formGroupClient: FormGroup;
-
+  submitted: boolean = false;
 
   constructor(private supplierService: SupplierService,
     private formBuilder: FormBuilder) {
@@ -22,11 +23,20 @@ export class SupplierComponent {
       name: [''],
       email: [''],
       product: [''],
+      demand: [''],
       address: [''],
-      phone: ['']
+      phone: [''],
+      checkbox:  [null, Validators.required, ],
       
     });
   }
+  
+  clean (){
+    this.formGroupClient.reset();
+    this.isEditing = false;
+    this.submitted = false;
+
+    }
   ngOnInit(): void {
     this.loadSuppliers();
 
@@ -40,30 +50,36 @@ export class SupplierComponent {
    }
 
    save (){
-    if (this.isEditing)
-    {
-      this.supplierService.update(this.formGroupClient.value).subscribe(
+    this.submitted = true;
+    if (this.formGroupClient.valid) {
+      if (this.isEditing)
+      {
+        this.supplierService.update(this.formGroupClient.value).subscribe(
+          {
+            next: () => {
+              this.loadSuppliers();
+              this.formGroupClient.reset();
+              this.isEditing = false;
+              this.submitted = false;
+            }
+          }
+        )
+      }
+      else{
+      this.supplierService.save(this.formGroupClient.value).subscribe(
         {
-          next: () => {
-            this.loadSuppliers();
+          next : data => {
+            this.suppliers.push(data)
             this.formGroupClient.reset();
-            this.isEditing = false;
+            this.submitted = true;
+  
           }
         }
-      )
+      );
     }
-    else{
-    this.supplierService.save(this.formGroupClient.value).subscribe(
-      {
-        next : data => {
-          this.suppliers.push(data)
-          this.formGroupClient.reset();
-
-        }
-      }
-    );
   }
-}
+ }
+  
  
    edit (supplier : Supplier){
       this.formGroupClient.setValue(supplier);
@@ -77,8 +93,7 @@ export class SupplierComponent {
      })
  
  }
-   clean (){
-   this.formGroupClient.reset();
-   this.isEditing = false;
-   }
+
+  
+ 
  }
