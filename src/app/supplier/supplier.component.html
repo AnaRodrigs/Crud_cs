@@ -11,7 +11,7 @@
             </div>
 
             <div class="input-group mb-3">
-              <span class="input-group-text" id="name">Nome</span>
+              <span class="input-group-text" id="name" >Nome </span>
               <input type="text"  id="name" formControlName="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
@@ -19,7 +19,10 @@
               <span class="input-group-text" id="email" >Email </span>
               <input type="email"  id="email" formControlName="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="product" >Produto </span>
+              <input type="text" id="product" formControlName="product" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="phone" >Telefone </span>
               <input type="phone" id="phone" formControlName="phone" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -33,7 +36,7 @@
       
               <div class="mb-3 d-flex justify-content-end">
                 <button class="btn btn-primary me-2" (click)="save()"> salvar</button>
-                <button class="btn btn-primary" (click)="clean() ">Limpar</button>
+                <button class="btn btn-primary" (click)="clean()">Limpar</button>
               
               </div>
               <table class="table table-striped">
@@ -43,6 +46,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Endreço</th>
+                    <th scope="col">Produto</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Opções</th>
                   </tr>
@@ -54,6 +58,7 @@
                     <td>{{supplier.name}}</td>
                     <td>{{supplier.email}}</td>
                     <td>{{supplier.address}}</td>
+                    <td>{{supplier.product}}</td>
                     <td>{{supplier.phone}}</td>
 
                     <td>

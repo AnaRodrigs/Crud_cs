@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SupplierService {
-
   url = "http://localhost:3000/suppliers";
   constructor(private http: HttpClient) { }
 

@@ -9,6 +9,7 @@ import { ClientService } from '../client.service';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent {
+  
   clients: Client[] = [];
   isEditing: boolean = false;
   formGroupClient: FormGroup;
@@ -58,7 +59,7 @@ export class ClientComponent {
  
          }
        }
-     )
+     );
    }
  }
    edit (client : Client){

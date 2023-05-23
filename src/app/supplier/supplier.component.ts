@@ -11,8 +11,9 @@ import { Supplier } from '../supplier';
 export class SupplierComponent {
 
   suppliers: Supplier[] = [];
-  isEditing: boolean = true;
+  isEditing: boolean = false;
   formGroupClient: FormGroup;
+
 
   constructor(private supplierService: SupplierService,
     private formBuilder: FormBuilder) {
@@ -20,13 +21,15 @@ export class SupplierComponent {
       id: [''],
       name: [''],
       email: [''],
+      product: [''],
       address: [''],
       phone: ['']
+      
     });
   }
-
   ngOnInit(): void {
     this.loadSuppliers();
+
    }
    loadSuppliers() {
      this.supplierService.getSuppliers (). subscribe(
@@ -35,33 +38,33 @@ export class SupplierComponent {
        }
      );
    }
- 
- 
+
    save (){
-     if (this.isEditing)
-     {
-       this.supplierService.update(this.formGroupClient.value).subscribe(
-         {
-           next: () => {
-             this.loadSuppliers();
-             this.formGroupClient.reset();
-             this.isEditing = false;
-           }
-         }
-       )
-     }
-     else{
-     this.supplierService.save(this.formGroupClient.value).subscribe(
-       {
-         next : data => {
-           this.suppliers.push(data)
-           this.formGroupClient.reset();
+    if (this.isEditing)
+    {
+      this.supplierService.update(this.formGroupClient.value).subscribe(
+        {
+          next: () => {
+            this.loadSuppliers();
+            this.formGroupClient.reset();
+            this.isEditing = false;
+          }
+        }
+      )
+    }
+    else{
+    this.supplierService.save(this.formGroupClient.value).subscribe(
+      {
+        next : data => {
+          this.suppliers.push(data)
+          this.formGroupClient.reset();
+
+        }
+      }
+    );
+  }
+}
  
-         }
-       }
-     )
-   }
- }
    edit (supplier : Supplier){
       this.formGroupClient.setValue(supplier);
       this.isEditing = true;

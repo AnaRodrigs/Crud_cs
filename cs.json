@@ -12,10 +12,15 @@
       "name": "julia",
       "email": "julia@gmail.com",
       "address": "aeroporto",
-      "phone": "199999999"
+      "phone": "199992"
+    },
+    {
+      "id": 3,
+      "name": "Ana",
+      "email": "ana@gmail.com",
+      "address": "rua dos andradas",
+      "phone": "119876"
     }
   ],
-  "suppliers": [
-    {}
-  ]
+  "suppliers": []
 }
