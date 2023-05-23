@@ -1,0 +1,21 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Josefa",
+      "email": "josefa@gmail",
+      "address": "maria@gmail",
+      "phone": "112565"
+    },
+    {
+      "id": 2,
+      "name": "julia",
+      "email": "julia@gmail.com",
+      "address": "aeroporto",
+      "phone": "199999999"
+    }
+  ],
+  "suppliers": [
+    {}
+  ]
+}

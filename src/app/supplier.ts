@@ -1,8 +1,8 @@
 export interface Supplier {
     id : number;
     name : string ;
-    endereco : string;
-    telefone : number;
+    address : string;
+    phone : number;
     email : string;
 
   }
