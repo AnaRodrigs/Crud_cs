@@ -29,7 +29,9 @@
               <span class="input-group-text" id="address" >Endereço </span>
               <input type="text" id="address" formControlName="address" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-
+            <div class="">
+              <input type="checkbox" formControlName="isChecked" (change)="doSomething()"> <label> Deseja compartilhar todas essas informações conosco ?</label>
+            </div>
       
               <div class="mb-3 d-flex justify-content-end">
                 <button class="btn btn-primary me-2" (click)="save ()"> salvar</button>

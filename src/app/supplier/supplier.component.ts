@@ -42,10 +42,10 @@ export class SupplierComponent implements OnInit {
   doSomething(){
   
     if(this.isChecked==true){
-      console.log('checkbox is unchecked ');
+      console.log('checkbox is checked ');
     }
     else{
-      console.log('checkbox is checked');
+      console.log('checkbox is unchecked');
      
     }
   }
@@ -63,6 +63,7 @@ export class SupplierComponent implements OnInit {
  
  
    save (){
+    
    this.isChecked = true;
    if (this.formGroupClient.valid)
    {

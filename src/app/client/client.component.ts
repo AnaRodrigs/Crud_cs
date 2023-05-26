@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Client } from '../client';
 import { ClientService } from '../client.service';
 
@@ -13,6 +13,7 @@ export class ClientComponent {
   clients: Client[] = [];
   isEditing: boolean = false;
   formGroupClient: FormGroup;
+  isChecked: boolean = false; 
 
   constructor(private clientService: ClientService,
     private formBuilder: FormBuilder) {
@@ -21,8 +22,19 @@ export class ClientComponent {
       name: [''],
       email: [''],
       address: [''],
-      phone: ['']
+      phone: [''],
+      isChecked: ['',[Validators.required]],
     });
+  }
+  doSomething(){
+  
+    if(this.isChecked==true){
+      console.log('checkbox is checked ');
+    }
+    else{
+      console.log('checkbox is unchecked');
+     
+    }
   }
 
   ngOnInit(): void {
@@ -38,30 +50,38 @@ export class ClientComponent {
  
  
    save (){
-     if (this.isEditing)
-     {
-       this.clientService.update(this.formGroupClient.value).subscribe(
-         {
-           next: () => {
-             this.loadClients();
-             this.formGroupClient.reset();
-             this.isEditing = false;
-           }
-         }
-       )
-     }
-     else{
-     this.clientService.save(this.formGroupClient.value).subscribe(
-       {
-         next : data => {
-           this.clients.push(data)
-           this.formGroupClient.reset();
- 
-         }
-       }
-     );
+   this.isChecked = true;
+   if (this.formGroupClient.valid)
+   {
+    if (this.isEditing)
+    {
+      this.clientService.update(this.formGroupClient.value).subscribe(
+        {
+          next: () => {
+            this.loadClients();
+            this.formGroupClient.reset();
+            this.isEditing = false;
+            this.isChecked = false;
+          }
+        }
+      )
+    }
+    else{
+    this.clientService.save(this.formGroupClient.value).subscribe(
+      {
+        next : data => {
+          this.clients.push(data)
+          this.formGroupClient.reset();
+          this.isChecked = false;
+
+        }
+      }
+    );
+  }
+}
+
    }
- }
+   
    edit (client : Client){
       this.formGroupClient.setValue(client);
       this.isEditing = true;
