@@ -22,5 +22,34 @@
       "phone": "119876"
     }
   ],
-  "suppliers": []
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "Josefa",
+      "address": "av daniel ratti",
+      "product": "violinos",
+      "demand": "123",
+      "phone": "112565",
+      "email": "josefa@gmail"
+    },
+    {
+      "id": 2,
+      "name": "Ana",
+      "email": "anamaria@gmail",
+      "product": "sax",
+      "demand": "123",
+      "address": "jd aeroporto",
+      "phone": "123456"
+    },
+    {
+      "id": 3,
+      "name": "",
+      "email": "",
+      "product": "",
+      "demand": "",
+      "address": "",
+      "phone": "",
+      "isChecked": true
+    }
+  ]
 }

@@ -36,12 +36,13 @@
               <span class="input-group-text" id="address" >Demanda </span>
               <input type="number" id="demand" formControlName="demand" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
-            <div class="div">
-              <input type="checkbox" id="checkbox" ng-model="checkbox" ng-value="checkbox ">Deseja compartilhar todas essas informações conosco ?<BR>
-                <div *ngIf="submitted && checkbox.invalid">
-                  <small alert="text-danger">Preencha corretamente!</small>
-                </div>
-            </div>
+            
+              <div class="">
+                <input type="checkbox" formControlName="isChecked" (change)="doSomething()"> <label> Deseja compartilhar todas essas informações conosco ?</label>
+              </div>
+               
+             
+            
             
               <div class="mb-3 d-flex justify-content-end">
                 <button class="btn btn-primary me-2" (click)="save()"> salvar</button>
