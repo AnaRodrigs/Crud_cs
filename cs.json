@@ -20,36 +20,39 @@
       "email": "ana@gmail.com",
       "address": "rua dos andradas",
       "phone": "119876"
+    },
+    {
+      "id": 4,
+      "name": "Ana Maria Rodrigues",
+      "email": "rodriguesanalima13@gmail.com",
+      "address": "BR-SP, casa",
+      "phone": "11999167334",
+      "town": "",
+      "isChecked": true
     }
   ],
   "suppliers": [
     {
-      "id": 1,
-      "name": "Josefa",
-      "address": "av daniel ratti",
-      "product": "violinos",
-      "demand": "123",
-      "phone": "112565",
-      "email": "josefa@gmail"
+      "id": 10,
+      "name": "Ana Maria Rodrigues",
+      "email": "rodriguesanalima13@gmail.com",
+      "product": "portas",
+      "demand": 123,
+      "town": "BR-SP",
+      "phone": "11999167334",
+      "isChecked": true,
+      "opcaoSelecionada": "Opção 3"
     },
     {
-      "id": 2,
-      "name": "Ana",
-      "email": "anamaria@gmail",
-      "product": "sax",
-      "demand": "123",
-      "address": "jd aeroporto",
-      "phone": "123456"
-    },
-    {
-      "id": 3,
-      "name": "",
-      "email": "",
-      "product": "",
-      "demand": "",
-      "address": "",
-      "phone": "",
-      "isChecked": true
+      "id": 13,
+      "name": "Ana Maria Rodrigues",
+      "email": "rodriguesanalima13@gmail.com",
+      "product": "café",
+      "demand": 123,
+      "town": "BR-SP",
+      "phone": "11999167334",
+      "isChecked": true,
+      "opcaoSelecionada": "materia prima"
     }
   ]
 }

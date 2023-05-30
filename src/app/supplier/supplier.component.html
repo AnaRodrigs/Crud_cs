@@ -1,87 +1,114 @@
-
 <div class="container text-center  ">
-    <div class=" "style="">
+  <div class=" " >
 
-        <div class="" >
-        <form [formGroup]="formGroupClient">
-            <div class="mb-2">
-              <div class="display-6">
-                Cadastro do fornecedor
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="name" >Nome </span>
-              <input type="text"  id="name" formControlName="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="email" >Email </span>
-              <input type="email"  id="email" formControlName="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="product" >Produto </span>
-              <input type="text" id="product" formControlName="product" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="phone" >Telefone </span>
-              <input type="phone" id="phone" formControlName="phone" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="address" >Endereço </span>
-              <input type="text" id="address" formControlName="address" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="address" >Demanda </span>
-              <input type="number" id="demand" formControlName="demand" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-            
-              <div class="">
-                <input type="checkbox" formControlName="isChecked" (change)="doSomething()"> <label> Deseja compartilhar todas essas informações conosco ?</label>
-              </div>
-               
-             
-            
-            
-              <div class="mb-3 d-flex justify-content-end">
-                <button class="btn btn-primary me-2" (click)="save()"> salvar</button>
-                <button class="btn btn-primary" (click)="clean()">Limpar</button>
-              
-              </div>
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Endreço</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Demanda</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Opções</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr *ngFor = "let supplier of suppliers">
-                    <th scope="row">{{supplier.id}}</th>
-                    <td>{{supplier.name}}</td>
-                    <td>{{supplier.email}}</td>
-                    <td>{{supplier.address}}</td>
-                    <td>{{supplier.product}}</td>
-                    <td>{{supplier.demand}}</td>
-                    <td>{{supplier.phone}}</td>
-
-                    <td>
-                      <button class="btn btn-primary me-1" (click)="edit(supplier)">Editar</button>
-                      <button class="btn btn-primary" (click)="delete(supplier)">Excluir</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-          </form>
+    <div class="">
+      <form [formGroup]="formGroupClient">
+        <div class="mb-2">
+          <div class="display-6">
+            Cadastro do fornecedor
+          </div>
         </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="name">Nome</span>
+          <input type="text"  id="name" formControlName="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div> <div *ngIf="submitted && name.invalid">
+          <small class="text-danger">Nome Inválido!</small>
+        </div>
+      
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="email" >Email </span>
+          <input type="email"  id="email" formControlName="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div *ngIf="submitted && email.invalid">
+          <small class="text-danger">Email Inválido!</small>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="phone" >Telefone </span>
+          <input type="phone" id="phone" formControlName="phone" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="town" >Endereço </span>
+          <input type="text" id="town" formControlName="town" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="form-check form-check-inline">
+          <div class="">
+            <p>O produto se enquadra em qual setor </p>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio"  id="opcao1"  value="materia prima" formControlName="opcaoSelecionada">
+            <label for="opcao1">Primário</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="opcao2"  value="industrial" formControlName="opcaoSelecionada">
+            <label for="opcao2">Secundário</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="opcao3"  value="ofertante de serviços" formControlName="opcaoSelecionada">
+            <label for="opcao3">Terciario</label>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="product">Produto </span>
+          <input type="text" id="product" formControlName="product" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="demand">Demanda </span>
+          <input type="number" id="demand" formControlName="demand" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+            <div class="">
+              <input type="checkbox" formControlName="isChecked" (change)="doSomething()"> <label> Deseja compartilhar
+                todas essas informações conosco ?</label>
+            </div>
+          
+
+
+            <div class="mb-3 d-flex justify-content-end">
+              <button class="btn btn-primary me-2" (click)="save()"> salvar</button>
+              <button class="btn btn-primary" (click)="clean()">Limpar</button>
+
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">cidade</th>
+                  <th scope="col">Produto</th>
+                  <th scope="col">Demanda</th>
+                  <th scope="col">setor</th>
+                  <th scope="col">Opções</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let supplier of suppliers">
+                  <th scope="row">{{supplier.id}}</th>
+                  <td>{{supplier.name}}</td>
+                  <td>{{supplier.email}}</td>
+                  <td>{{supplier.phone}}</td>
+                  <td>{{supplier.town}}</td>
+                  <td>{{supplier.product}}</td>
+                  <td>{{supplier.demand}}</td>
+                  <td *ngIf="supplier.opcaoSelecionada">{{supplier.opcaoSelecionada}}</td>
+                
+
+                  <td>
+                    <button class="btn btn-primary me-1" (click)="edit(supplier)">Editar</button>
+                    <button class="btn btn-primary" (click)="delete(supplier)">Excluir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </form>
     </div>
-    </div>
-   
+  </div>
+</div>

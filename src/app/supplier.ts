@@ -1,10 +1,11 @@
 export interface Supplier {
     id : number;
     name : string ;
-    address : string;
     product: string ;
-    demand : string;
+    demand : number;
     phone : number;
     email : string;
+    town: string;
+    opcaoSelecionada: string;
 
   }

@@ -9,11 +9,13 @@ import { ClientService } from '../client.service';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent {
-  
+  selected: string = 'Female';
+  public list1: any = ['Female', 'Man'];
   clients: Client[] = [];
   isEditing: boolean = false;
   formGroupClient: FormGroup;
   isChecked: boolean = false; 
+ defaultGender = 'male';
 
   constructor(private clientService: ClientService,
     private formBuilder: FormBuilder) {
@@ -23,8 +25,15 @@ export class ClientComponent {
       email: [''],
       address: [''],
       phone: [''],
+      town: [''],
       isChecked: ['',[Validators.required]],
+      
+    
     });
+  }
+  
+  doChoose (){
+
   }
   doSomething(){
   
@@ -98,5 +107,11 @@ export class ClientComponent {
    this.formGroupClient.reset();
    this.isEditing = false;
    }
+   get gender(): any{
+    return [
+      { id : 'female', value: 'Feminino'},
+      { id : 'male', value: 'Masculino'},
+    ]
+  }
  }
  
