@@ -29,9 +29,8 @@ export class ClientComponent {
     });
   }
   
-  doChoose (){
+ 
 
-  }
   doSomething(){
   
     if(this.isChecked==true){
@@ -104,11 +103,6 @@ export class ClientComponent {
    this.formGroupClient.reset();
    this.isEditing = false;
    }
-   get gender(): any{
-    return [
-      { id : 'female', value: 'Feminino'},
-      { id : 'male', value: 'Masculino'},
-    ]
-  }
+   
  }
  
