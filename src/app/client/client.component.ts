@@ -9,13 +9,10 @@ import { ClientService } from '../client.service';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent {
-  selected: string = 'Female';
-  public list1: any = ['Female', 'Man'];
   clients: Client[] = [];
   isEditing: boolean = false;
   formGroupClient: FormGroup;
   isChecked: boolean = false; 
- defaultGender = 'male';
 
   constructor(private clientService: ClientService,
     private formBuilder: FormBuilder) {

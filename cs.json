@@ -33,17 +33,6 @@
   ],
   "suppliers": [
     {
-      "id": 10,
-      "name": "Ana Maria Rodrigues",
-      "email": "rodriguesanalima13@gmail.com",
-      "product": "portas",
-      "demand": 123,
-      "town": "BR-SP",
-      "phone": "11999167334",
-      "isChecked": true,
-      "opcaoSelecionada": "Opção 3"
-    },
-    {
       "id": 13,
       "name": "Ana Maria Rodrigues",
       "email": "rodriguesanalima13@gmail.com",
@@ -53,6 +42,28 @@
       "phone": "11999167334",
       "isChecked": true,
       "opcaoSelecionada": "materia prima"
+    },
+    {
+      "id": 14,
+      "name": "ana Maria",
+      "email": "ana@gmail",
+      "product": "facao",
+      "demand": 123,
+      "town": "a",
+      "phone": "11123244",
+      "isChecked": true,
+      "opcaoSelecionada": "industrial"
+    },
+    {
+      "id": 15,
+      "name": "ana ",
+      "email": "ana@gmail",
+      "product": "aaaaaa",
+      "demand": 123,
+      "town": "111",
+      "phone": "123343",
+      "isChecked": true,
+      "opcaoSelecionada": "ofertante de serviços"
     }
   ]
 }
